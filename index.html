@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کتاب مهاجرت و پناهندگی - نوشته پویان (نسخه وُرد)</title>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    :root {
+      --word-blue: #185abd;
+      --word-blue-dark: #103f91;
+      --word-ribbon-bg: #f3f2f1;
+      --word-workspace: #e1dfdd;
+      --paper-bg: #ffffff;
+      --paper-text: #1b1a19;
+      --paper-muted: #605e5c;
+      --paper-border: #d2d0ce;
+      --accent-gold: #d97706;
+      --danger: #d13438;
+      --success: #107c41;
+      --purple: #5c2d91;
+      --font-size-base: 16.5px;
+      --paper-zoom: 1;
+    }
+
+    body.dark-workspace {
+      --word-ribbon-bg: #252423;
+      --word-workspace: #1b1a19;
+      --paper-bg: #2d2c2c;
+      --paper-text: #f3f2f1;
+      --paper-muted: #c8c6c4;
+      --paper-border: #484644;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background-color: var(--word-workspace);
+      color: var(--paper-text);
+      font-size: var(--font-size-base);
+      line-height: 2.05;
+      overflow-x: hidden;
+      padding-bottom: 42px;
+    }
+
+    /* Anti-Copy Protection (Active when not in Edit Mode) */
+    body.protected-mode {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body.protected-mode img,
+    body.protected-mode video {
+      -webkit-user-drag: none;
+    }
+
+    @media print {
+      body {
+        display: none !important;
+      }
+    }
+
+    /* Reading Mode Selection Modal (Entry Screen) */
+    #mode-selector-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(16, 24, 40, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 90000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+    #mode-selector-modal.hidden {
+      display: none;
+    }
+
+    .selector-dialog {
+      background: #ffffff;
+      color: #1b1a19;
+      max-width: 920px;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      border-top: 8px solid var(--word-blue);
+    }
+
+    .selector-header {
+      background: #f8fafc;
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    .selector-header h1 {
+      color: var(--word-blue);
+      font-size: 1.55rem;
+      margin-bottom: 0.4rem;
+    }
+    .selector-header p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .mode-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      padding: 2rem;
+      background: #ffffff;
+    }
+
+    .mode-card {
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s;
+      cursor: pointer;
+      position: relative;
+      background: #fcfcfd;
+    }
+    .mode-card:hover {
+      border-color: var(--word-blue);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(24, 90, 189, 0.14);
+    }
+    .mode-card.featured {
+      border-color: var(--word-blue);
+      background: #f0f7ff;
+    }
+
+    .mode-badge-count {
+      display: inline-block;
+      background: var(--word-blue);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.85rem;
+      align-self: flex-start;
+    }
+
+    .mode-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #0f172a;
+    }
+    .mode-card p {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .mode-select-btn {
+      width: 100%;
+      background: var(--word-blue);
+      color: #ffffff;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .mode-select-btn:hover {
+      background: var(--word-blue-dark);
+    }
+
+    /* Security Blur Overlay */
+    #security-blur {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(20px);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      color: #fff;
+    }
+    #security-blur.active {
+      display: flex;
+    }
+
+    /* Microsoft Word Top Title Bar & Ribbon */
+    header.word-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .word-title-bar {
+      background-color: var(--word-blue);
+      color: #ffffff;
+      padding: 0.5rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .doc-title-area {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+    }
+    .word-icon {
+      background: #ffffff;
+      color: var(--word-blue);
+      font-weight: 900;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      letter-spacing: -0.5px;
+    }
+
+    .word-ribbon {
+      background-color: var(--word-ribbon-bg);
+      border-bottom: 1px solid var(--paper-border);
+      padding: 0.55rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .ribbon-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .ribbon-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--paper-border);
+      margin: 0 0.25rem;
+    }
+
+    .word-btn {
+      background: var(--paper-bg);
+      color: var(--paper-text);
+      border: 1px solid var(--paper-border);
+      padding: 0.38rem 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s;
+    }
+    .word-btn:hover {
+      border-color: var(--word-blue);
+      background: rgba(24, 90, 189, 0.08);
+    }
+    .word-btn.active-mode {
+      background: var(--word-blue);
+      color: #ffffff;
+      border-color: var(--word-blue);
+    }
+    .word-btn-gold {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #f59e0b;
+    }
+    .word-btn-danger {
+      background: var(--danger);
+      color: #fff;
+      border-color: var(--danger);
+    }
+    .word-btn-success {
+      background: var(--success);
+      color: #fff;
+      border-color: var(--success);
+    }
+
+    .word-search-input {
+      background: var(--paper-bg);
+      color: var(--paper-text);
+      border: 1px solid var(--paper-border);
+      padding: 0.38rem 0.85rem;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      width: 190px;
+      outline: none;
+    }
+    .word-search-input:focus {
+      border-color: var(--word-blue);
+    }
+
+    /* Author Edit Toolbar */
+    #admin-toolbar {
+      display: none;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 0.65rem 1.25rem;
+      border-bottom: 3px solid #f59e0b;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    #admin-toolbar.active {
+      display: flex;
+    }
+    .admin-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .cursor-status-badge {
+      font-size: 0.78rem;
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    /* Main Workspace Layout */
+    .word-workspace-container {
+      max-width: 1280px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .word-workspace-container {
+        grid-template-columns: 1fr;
+      }
+      aside.word-nav-pane {
+        position: static !important;
+      }
+    }
+
+    /* Word Navigation Pane (Sidebar) */
+    aside.word-nav-pane {
+      position: sticky;
+      top: 118px;
+      background: var(--paper-bg);
+      border: 1px solid var(--paper-border);
+      border-radius: 6px;
+      padding: 1rem;
+      max-height: calc(100vh - 165px);
+      overflow-y: auto;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-pane-title {
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--word-blue);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--word-blue);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .toc-list a {
+      display: block;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      color: var(--paper-text);
+      text-decoration: none;
+      font-size: 0.83rem;
+      transition: background 0.15s;
+      border-right: 3px solid transparent;
+    }
+    .toc-list a:hover {
+      background: rgba(24, 90, 189, 0.08);
+      border-right-color: var(--word-blue);
+    }
+
+    /* A4 Word Document Pages */
+    main.pages-stream {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      transform: scale(var(--paper-zoom));
+      transform-origin: top center;
+    }
+
+    .word-page {
+      background-color: var(--paper-bg);
+      color: var(--paper-text);
+      width: 100%;
+      max-width: 816px; /* Standard A4/Letter width on screen */
+      min-height: 1040px;
+      padding: 3.5rem 4.2rem 4rem 4.2rem;
+      border: 1px solid var(--paper-border);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 768px) {
+      .word-page {
+        padding: 2rem 1.5rem 2.5rem 1.5rem;
+        min-height: auto;
+      }
+    }
+
+    /* Word Page Running Header & Footer */
+    .word-running-header {
+      border-bottom: 1px solid var(--paper-border);
+      padding-bottom: 0.45rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--paper-muted);
+    }
+
+    .word-page-body {
+      flex: 1;
+    }
+
+    .word-running-footer {
+      border-top: 1px solid var(--paper-border);
+      padding-top: 0.55rem;
+      margin-top: 2.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--paper-muted);
+    }
+
+    .page-number-pill {
+      font-weight: 800;
+      color: var(--word-blue);
+    }
+
+    /* Typography inside Word Page */
+    .chapter-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--word-blue);
+      margin-bottom: 1.15rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid rgba(24, 90, 189, 0.2);
+    }
+
+    .verbatim-text {
+      white-space: pre-line;
+      text-align: justify;
+    }
+
+    .route-Links-box {
+      background: rgba(24, 90, 189, 0.04);
+      border: 1px solid var(--paper-border);
+      border-left: 4px solid var(--word-blue);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
+      direction: ltr;
+      text-align: left;
+      font-family: monospace;
+      font-size: 0.88rem;
+    }
+    .route-Links-box a {
+      color: var(--word-blue);
+      word-break: break-all;
+    }
+
+    .route-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 1.25rem 0;
+      padding: 0.9rem;
+      background: rgba(24, 90, 189, 0.05);
+      border-radius: 8px;
+      border: 1px solid var(--paper-border);
+    }
+    .route-step {
+      background: var(--paper-bg);
+      border: 1px solid var(--word-blue);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .route-arrow {
+      color: var(--accent-gold);
+      font-weight: bold;
+    }
+
+    /* Edit Controls inside each Word Page */
+    .section-edit-controls {
+      display: none;
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      padding: 0.6rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: #0f172a;
+    }
+    body.edit-mode .section-edit-controls {
+      display: flex;
+    }
+    body.edit-mode [data-editable="true"] {
+      outline: 1px dashed #f59e0b;
+      padding: 0.35rem;
+      border-radius: 4px;
+      cursor: text;
+    }
+    body.edit-mode [data-editable="true"]:focus {
+      outline: 2px solid var(--word-blue);
+      background: rgba(24, 90, 189, 0.03);
+    }
+
+    /* Embedded Media Blocks inside Word Page */
+    .custom-media-block {
+      margin: 1.2rem auto;
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid var(--paper-border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      max-width: 100%;
+      width: 100%;
+      white-space: normal;
+    }
+    .custom-media-block.align-right { margin-right: 0; margin-left: auto; }
+    .custom-media-block.align-center { margin-right: auto; margin-left: auto; }
+    .custom-media-block.align-left { margin-left: 0; margin-right: auto; }
+
+    .custom-media-block img,
+    .custom-media-block video {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      max-height: 550px;
+      object-fit: contain;
+    }
+    .custom-media-block audio {
+      width: 100%;
+      margin-top: 0.35rem;
+    }
+    .media-caption {
+      font-size: 0.85rem;
+      color: var(--paper-muted);
+      text-align: center;
+      margin-top: 0.45rem;
+    }
+    .media-block-toolbar {
+      display: none;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+      padding: 0.35rem;
+      background: #e2e8f0;
+      border-radius: 6px;
+    }
+    body.edit-mode .media-block-toolbar {
+      display: flex;
+    }
+    .media-mini-btn {
+      background: #fff;
+      border: 1px solid #cbd5e1;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .file-attachment-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--paper-bg);
+      border: 1px solid var(--paper-border);
+      border-right: 4px solid var(--word-blue);
+      border-radius: 6px;
+    }
+
+    /* Interactive Bonus Pages (Detailed Mode) */
+    .bonus-tool-box {
+      background: rgba(24, 90, 189, 0.04);
+      border: 1px solid var(--paper-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+    .form-group select, .form-group input {
+      background: var(--paper-bg);
+      color: var(--paper-text);
+      border: 1px solid var(--paper-border);
+      padding: 0.55rem;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    /* Word Bottom Status Bar */
+    footer.word-status-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: var(--word-blue);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.25rem;
+      font-size: 0.78rem;
+      z-index: 1000;
+    }
+    .status-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Media Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 95000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+    .modal-card {
+      background: #ffffff;
+      color: #1b1a19;
+      border-top: 6px solid var(--word-blue);
+      border-radius: 12px;
+      max-width: 560px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 42px;
+      left: 20px;
+      background: #1e293b;
+      color: #ffffff;
+      border-right: 4px solid var(--word-blue);
+      padding: 0.7rem 1.15rem;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      z-index: 99990;
+      display: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="protected-mode">
+
+  <!-- 1. ENTRY READING MODE SELECTOR MODAL -->
+  <div id="mode-selector-modal">
+    <div class="selector-dialog">
+      <div class="selector-header">
+        <h1>📘 کتاب مهاجرت و پناهندگی (نوشته پویان)</h1>
+        <p>لطفاً نحوه مطالعه کتاب را انتخاب کنید (در هر زمان از نوار بالای صفحه قابل تغییر است):</p>
+      </div>
+      <div class="mode-cards-grid">
+        <!-- Option 1: Summary -->
+        <div class="mode-card" onclick="selectReadingMode('summary')">
+          <div>
+            <span class="mode-badge-count" id="summaryPageCountBadge">۸ صفحه</span>
+            <h3>۱. گزینه خلاصه</h3>
+            <p>مخصوص مطالعه سریع؛ شامل مهم‌ترین صفحات کلیدی کتاب (تعاریف، قانون طلایی صرافی و اسکونت، نقاط امن پلیس، افشاگری کلاهبرداری و قوانین دابلین و الحاق).</p>
+          </div>
+          <button class="mode-select-btn">مطالعه نسخه خلاصه</button>
+        </div>
+
+        <!-- Option 2: Standard -->
+        <div class="mode-card featured" onclick="selectReadingMode('normal')">
+          <div>
+            <span class="mode-badge-count" id="normalPageCountBadge">۲۴ صفحه</span>
+            <h3>۲. گزینه معمولی</h3>
+            <p>متن کامل و دست‌نخورده هر ۲۴ صفحه کتاب اصلی مهاجرت و پناهندگی با صفحه‌آرایی استاندارد و آشنای محیط وُرد (Microsoft Word).</p>
+          </div>
+          <button class="mode-select-btn">مطالعه نسخه معمولی (کامل)</button>
+        </div>
+
+        <!-- Option 3: Detailed -->
+        <div class="mode-card" onclick="selectReadingMode('detailed')">
+          <div>
+            <span class="mode-badge-count" id="detailedPageCountBadge">۲۸ صفحه</span>
+            <h3>۳. گزینه مفصل</h3>
+            <p>شامل تمام ۲۴ صفحه اصلی کتاب به همراه برگه‌های محاسبه‌گر هزینه مسیر و کمیسیون صرافی، شبیه‌ساز مچ‌گیری قاچاقبر، نقشه نقاط امن و تست آمادگی مهاجر.</p>
+          </div>
+          <button class="mode-select-btn">مطالعه نسخه مفصل + ابزارها</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anti-Screenshot Blur Overlay -->
+  <div id="security-blur">
+    <div>
+      <h2 style="color: #fbbf24; margin-bottom: 1rem;">🔒 این سند در برابر کپی و تصویربرداری محافظت شده است</h2>
+      <p style="margin-bottom: 1.5rem;">برای بازگشت به صفحه وُرد کتاب مهاجرت و پناهندگی، روی دکمه زیر کلیک کنید.</p>
+      <button class="word-btn active-mode" style="padding: 0.65rem 1.4rem; font-size: 0.95rem;" onclick="dismissBlur()">بازگشت به سند کتاب</button>
+    </div>
+  </div>
+
+  <!-- Media Insert Modal -->
+  <div class="modal-backdrop" id="mediaModal">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid #e2e8f0;">
+        <h3 id="modalTitle" style="color: var(--word-blue);">افزودن رسانه در برگه وُرد</h3>
+        <button class="word-btn word-btn-danger" onclick="closeMediaModal()">✕ بستن</button>
+      </div>
+
+      <!-- Live Voice Recorder -->
+      <div id="voiceRecorderPanel" style="display:none; background:#fef2f2; border:1px dashed #ef4444; padding:0.9rem; border-radius:8px; text-align:center; margin-bottom:1rem;">
+        <p style="font-size:0.88rem; margin-bottom:0.5rem;">🎙️ <strong>ضبط مستقیم ویس با میکروفون:</strong></p>
+        <div style="display:flex; justify-content:center; gap:0.5rem;">
+          <button class="word-btn word-btn-danger" id="startRecBtn" onclick="startVoiceRecording()">🔴 شروع ضبط صدا</button>
+          <button class="word-btn word-btn-gold" id="stopRecBtn" onclick="stopVoiceRecording()" style="display:none;">⏹️ توقف و آماده‌سازی</button>
+        </div>
+        <div id="recStatusText" style="margin-top:0.4rem; font-size:0.82rem; color:#dc2626;"></div>
+        <audio id="recordedAudioPreview" controls style="display:none; width:100%; margin-top:0.5rem;"></audio>
+      </div>
+
+      <div class="form-group">
+        <label>انتخاب فایل از گوشی یا کامپیوتر:</label>
+        <input type="file" id="mediaFileInput" onchange="handleFileSelect(event)">
+      </div>
+
+      <div class="form-group">
+        <label>یا وارد کردن لینک مستقیم / آدرس فایل (اختیاری):</label>
+        <input type="text" id="mediaUrlInput" placeholder="https://example.com/file.mp4" dir="ltr">
+      </div>
+
+      <div class="form-group">
+        <label>عنوان یا توضیحات زیر رسانه:</label>
+        <input type="text" id="mediaCaptionInput" placeholder="توضیح تصویر، فیلم، ویس یا فایل...">
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+        <div class="form-group">
+          <label>اندازه نمایش در برگه:</label>
+          <select id="mediaSizeSelect">
+            <option value="100%">تمام عرض کاغذ (۱۰۰٪)</option>
+            <option value="75%">بزرگ (۷۵٪)</option>
+            <option value="50%">متوسط (۵۰٪)</option>
+            <option value="35%">کوچک (۳۵٪)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>چینش در برگه وُرد:</label>
+          <select id="mediaAlignSelect">
+            <option value="align-center">وسط‌چین</option>
+            <option value="align-right">راست‌چین</option>
+            <option value="align-left">چپ‌چین</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1rem;">
+        <button class="word-btn" onclick="closeMediaModal()">انصراف</button>
+        <button class="word-btn word-btn-success" onclick="confirmInsertMedia()">✅ درج در برگه</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <!-- 2. MICROSOFT WORD RIBBON & HEADER -->
+  <header class="word-header">
+    <!-- Top Blue Word Bar -->
+    <div class="word-title-bar">
+      <div class="doc-title-area">
+        <span class="word-icon">W</span>
+        <span>کتاب مهاجرت و پناهندگی .docx — نوشته پویان (فقط خواندنی / محافظت‌شده)</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+        <button class="word-btn" style="background:#fff; color:var(--word-blue);" onclick="openModeModal()">📚 تغییر حالت مطالعه (خلاصه / معمولی / مفصل)</button>
+        <button class="word-btn word-btn-gold" onclick="toggleEditMode()" id="editModeBtn">✏️ پنل ویرایش نویسنده</button>
+      </div>
+    </div>
+
+    <!-- Gray Word Ribbon Bar -->
+    <div class="word-ribbon">
+      <div class="ribbon-group">
+        <span style="font-size:0.8rem; font-weight:700; color:var(--paper-muted);">نسخه در حال نمایش:</span>
+        <button class="word-btn" id="btnModeSummary" onclick="selectReadingMode('summary')">۱. خلاصه (<span class="count-summary">8</span> ص)</button>
+        <button class="word-btn active-mode" id="btnModeNormal" onclick="selectReadingMode('normal')">۲. معمولی (<span class="count-normal">24</span> ص)</button>
+        <button class="word-btn" id="btnModeDetailed" onclick="selectReadingMode('detailed')">۳. مفصل (<span class="count-detailed">28</span> ص)</button>
+      </div>
+
+      <div class="ribbon-group">
+        <input type="text" class="word-search-input" id="searchInput" placeholder="🔍 جستجو در صفحات وُرد..." oninput="searchBook(this.value)">
+        <div class="ribbon-divider"></div>
+        <button class="word-btn" onclick="changeFontSize(1)" title="درشت کردن خط">A+</button>
+        <button class="word-btn" onclick="changeFontSize(-1)" title="ریز کردن خط">A-</button>
+        <button class="word-btn" onclick="toggleDarkWorkspace()" id="themeBtn">🌙 میز کار تیره</button>
+      </div>
+    </div>
+
+    <!-- Author Edit Mode Toolbar -->
+    <div id="admin-toolbar">
+      <div class="admin-row">
+        <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+          <strong>🛠️ ابزار نویسنده:</strong>
+          <button class="word-btn word-btn-success" onclick="addNewWordPage()">➕ افزودن صفحه وُرد جدید</button>
+          <button class="word-btn" onclick="toggleBlurProtection()" id="blurToggleBtn">🛡️ قفل اسکرین‌شات: فعال</button>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.45rem; flex-wrap:wrap;">
+          <button class="word-btn word-btn-success" onclick="saveChangesToLocal()">💾 ذخیره در مرورگر</button>
+          <button class="word-btn word-btn-gold" onclick="exportStandaloneHTML()">📥 دانلود فایل نهایی سایت (HTML)</button>
+          <button class="word-btn word-btn-danger" onclick="resetToOriginal()">🔄 بازنشانی به متن اولیه</button>
+        </div>
+      </div>
+      <div class="admin-row" style="background:rgba(255,255,255,0.08); padding:0.45rem 0.75rem; border-radius:6px;">
+        <div style="display:flex; align-items:center; gap:0.45rem; flex-wrap:wrap;">
+          <span style="font-size:0.82rem; color:#fde047; font-weight:700;">📌 درج رسانه در محل نشانگر ماوس:</span>
+          <button class="word-btn" onclick="openMediaModal('image')">🖼️ +عکس</button>
+          <button class="word-btn" onclick="openMediaModal('video')">🎬 +فیلم</button>
+          <button class="word-btn word-btn-gold" onclick="openMediaModal('audio')">🎙️ +ویس / ضبط صدا</button>
+          <button class="word-btn" style="background:#5c2d91; color:#fff; border-color:#5c2d91;" onclick="openMediaModal('file')">📎 +فایل</button>
+        </div>
+        <span class="cursor-status-badge" id="cursorTargetBadge">محل درج: روی هر کلمه یا خطی از برگه کلیک کنید</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. WORD WORKSPACE (NAVIGATION PANE + A4 PAGES STREAM) -->
+  <div class="word-workspace-container">
+    
+    <!-- Left/Right Word Navigation Pane -->
+    <aside class="word-nav-pane">
+      <div class="nav-pane-title">
+        <span>📑 فهرست صفحات سند</span>
+        <span id="sidebarPageTotal" style="font-size:0.78rem;">۲۴ صفحه</span>
+      </div>
+      <ul class="toc-list" id="tocList"></ul>
+    </aside>
+
+    <!-- Stream of A4 Word Pages -->
+    <main class="pages-stream" id="bookContainer">
+
+      <!-- ================= PAGE 1 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-1" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — روایت شخصی و شناخت خطرات مسیر</span>
+          <span class="page-orig-label">برگه ۱ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h1 class="chapter-title" data-editable="true" style="font-size:1.75rem;">کتاب مهاجرت و پناهندگی</h1>
+          <div class="verbatim-text" data-editable="true">رویات شخصی ، آگاهی بخشی و شناخت خطرات مسیر
+این کتاب بهترین راهنما برای کسانی هست که قصد مهاجرت دارند. شما را با انواع مسیرها و روش های قیمتها نحوه بستن قرار داد ریسکهای مهاجرت آشنا میکند.
+حدودا 90 دانش لازم برای مهاجرت به روش پناهندگی رو به شما میدهد
+آشنایی با نویسنده :
+اسم من پویان هست و سال 2019 به صورت غیر قانونی از ایران حرکت کردم و از کشورهای ترکیه یونان آلبانی منتنگرو بوسنی کرواسی اسلونی ایتالیا فرانسه عبور کردم و به انگلیس رسیدم و توی این 7 سال تلاشم رو کردم که آگاهی لازم رو به قشر مهاجر بدم جلو ملیونها یورو ضررشون رو بگیرم</div>
+
+          <div style="margin-top: 1.5rem;">
+            <div style="font-size: 0.9rem; color: var(--word-blue); font-weight: 800; margin-bottom: 0.4rem;" data-editable="true">مسیر مهاجرت نویسنده</div>
+            <div class="route-diagram">
+              <span class="route-step">ایران</span><span class="route-arrow">←</span>
+              <span class="route-step">ترکیه</span><span class="route-arrow">←</span>
+              <span class="route-step">یونان</span><span class="route-arrow">←</span>
+              <span class="route-step">آلبانی</span><span class="route-arrow">←</span>
+              <span class="route-step">منتنگرو</span><span class="route-arrow">←</span>
+              <span class="route-step">بوسنی</span><span class="route-arrow">←</span>
+              <span class="route-step">کرواسی</span><span class="route-arrow">←</span>
+              <span class="route-step">اسلونی</span><span class="route-arrow">←</span>
+              <span class="route-step">ایتالیا</span><span class="route-arrow">←</span>
+              <span class="route-step">فرانسه</span><span class="route-arrow">←</span>
+              <span class="route-step" style="background:var(--word-blue); color:#fff;">انگلیس (2019)</span>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 2 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-2" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی</span>
+          <span class="page-orig-label">برگه ۲ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">مقدمه : چرا این کتاب را نوشتم؟</h2>
+          <div class="verbatim-text" data-editable="true">متاسفانه کلاهبرداری فقط از کمبود اطلاعات حاصل میشه در دنیای پناهندگی چون اطلاعات آنچنانی وجود نداره و منابع موثقی هم نیست و مهاجر نمیتونه اطلاعت درست و غلط رو از هم تشخص بده . البته اگر بتونه اصلا اطلاعاتی به دست بیاره
+و مکررا همه چی تغییر میکنه. روشهای رد شدن قوانین پناهندگی هر کشور قوانین مرزبانی ها
+اگر توی مشاغل دیگه کلاهبرداری 5 باشه توی دنیای مهاجرت 50 درصد هست
+من توی این 7 سال به چشم صدها نفر رو دیدم که تمام زندگیشو رو به شیوه و شگردهای باور نکردنی از دستشون در آوردن و به این امید این کتاب رو نشتم که مهاجر بفهمه آیا اصلا واجد شرایط هست . آیا با امکاناتی که داره میتونه این سفر رو شروع کنه . یا بهتره اصلا وارد نشه و اگر توانش رو داره باید چکار کنه</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 3 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-3" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی</span>
+          <span class="page-orig-label">برگه ۳ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">فهرست</h2>
+          <div class="verbatim-text" data-editable="true">فصل اول : تعاریف
+فصل دوم: نکات مهم پیش از تصمیم گیری
+فصل سوم : روشهای مهاجرت
+فصل چهارم : مسیرهای مهاجرت
+فصل پنجم : قوانین
+فصل ششم : آمار
+فصل هفتم : سوالات عمومی</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۳</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 4 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-4" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل اول</span>
+          <span class="page-orig-label">برگه ۴ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">فصل یک : تعاریف</h2>
+          <div class="verbatim-text" data-editable="true">پناهندگی : طبق ماده 14 حقوق بشر هر کسی حق دارد در برابر تعقییب شکنجه آزار توی یه کشور دیگه اعلام پناهندگی کنه
+گیم : مسیر غیر قانونی ، پر کاربرد ترین اصطلاح مهاجرت است
+مثلا گیم هوایی گیم زمینی گیم کامیون با خبر و بی خبر گیم یونان به بوسنی ......
+گیم خود اندار : خود مهاجر دانش لازم گیم و امکاناتش رو فراهم میکنه و بدون کمک قاچاقبر میرود
+کیس پناهندگی ( کیس خطر ) : وقتی به کشور مقصد رسدید و اعلام پناهندگی کردید از شما میپرسند به چه دلیل جانتان در خطر بود و اگر برگردید چه اتفاقی برای شما میفتد انواع کی . به همین توضیحات میگویند کیس پناهندگی . که شامل کیس سیاسی کیس مذهبی. کیس نژادی و قومی . کیس گرایش جنسی یا هویت جنسیتی کیس عضویت در گروه اجتماعی خاص
+کیس راه : از شما میپرسند چطور به کشور ما رسدید. در اصل میخواهند بدانند در میان راه کشور امن دیگری بوده که از آن عبور کرده باشید و انگشت پناهندگی داده باشید و آن کشور مسئول رسیدگی به کیس شما باشد. دو سوال اصلی دارد . چه کسی هستید و چه کشوری مسئول رسدیگی به پرونده شما است</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۴</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 5 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-5" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل دوم</span>
+          <span class="page-orig-label">برگه ۵ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">فصل دو : نکات مهم</h2>
+          <div class="verbatim-text" data-editable="true">شیوه پرداخت :
+به هیچ عنوان به هیچ دوستی رفیق قوم و خویش و یا قاچاقبری اعتماد نکنید. روال این کار این است که پول را به صراف معتبر مخصوص این شغل میدهید . اسکونت ( کمسیون ) درصد زیادی میگیره ( 5 تا 8 درصد ) اما هم جای پولتون امن هست و هم اگر به قاچاقبر به مشکل خوردید تجربه کافی رو داره و قضاوت عادلانه ای میکنه
+حدودا 99% کسانی که کلاه سرشون رفته همین موضوع رو نمیدونستن
+واقعا این مهمترین نوشته ی این کتاب هست ***
+چه کسایی برای مهاجرت آماده ترند :
+کسانی که یورو نقدی آماده دارند و چون کسی که ملک میفروشه و یا ماشین ، چون باید پول رو تبدیل به یورو کنه بده به صراف و اگر برگشت خورد همون یورو رو از صراف بگیره و دوباره تبدیل به خونه و ماشین کنه . هم توی خرید و هم فروش ضرر میکنه. این روزها هم هیچ روشی بیشتر از 70 درصد شانس رد شدن نداره
+برای شروع این سفر سرنوشت ساز سه تا چیز لازمه . شانس . پول . اطلاعات
+با توجه به شرایط حقوق بشری ایران همه ی ایرانیها مستحق پناهندگی هستن . ( موضوع اصلی کیس پناهندگی نیست ) مهم رسیدن است. اگر کسی اهمیت کیس رو زیاد جلوه میده و بابت کیس پناهندگی خواست از شما پولی بگیره نپذیرید
+این که چه کشوری برای پناهندگی بهتر هست. حدودا همه ی کشورهای اروپایی کیفیت زندگیشون در یه سطح هست اما یه فصل به این موضوع می پردازم . ولی هدف اصلی این کتاب راهنمای مسیر هست
+اگر در مسیر مهاجرت پلیس ما رو گرفت چه اتفاقی می افتد :
+در ترکیه هر جایی که بفهمند میخواهید گیم بزنید دستگیر کنند. یا دیپرت میشید ایران و یا باید 6 ماه تا یکسال توی کمپ باشید .
+توی کشور یونان باید از شهر سالونیک چهل پنجاه کیلومتری عبور کرده باشید
+بلغارستان هم تا خود شهر صوفیا
+این سه تا مشکل اصلی هست چون یونان و بلغار برمیگردونه ترکیه و ترکیه هم که یا کمپ یا دیپرت
+اما اگر از این سه کشور عبور کنید. دیگه هرگز به عقب بر نمیگردید و یه جورایی save میشید . بقیه کشورها در بدترین حالت ( اگر لب مرز بگیرنتون ) فقط یک کشور شما رو به عقب بر میگردونن . ولی اگر از مرز دور شده باشید دیگه حدودا کاری ندارند.</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۵</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 6 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-6" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل سوم</span>
+          <span class="page-orig-label">برگه ۶ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">فصل سه : روشهای مهاجرت</h2>
+          <div class="verbatim-text" data-editable="true">روش اول ( مسیر هوایی ) ( گیم هوایی ) :
+روال این گیم به این شکل هست که در این روش دو هزینه بر عهده قاچاقبر است
+یک : پاسپرت ( شباهتی . چنجی . ساختگی )
+دو : بلیط
+فراموش نشود که هزینه ی این دو باید باید با قاچاقبر باشد ( کلاه سرتان نرود ) . و پول را شما باید در صرافی بگذارید اگر به کشور مقصد رسیدید صراف تمام پول را برای قاچاقبر آزاد میکنه . اگر نرسیدید . کل پول رو میتونید برید از صرافی ( امانت دار خانه ) بگیرید
+پاسپرت شباهتی : یک پاسپرت واقعی است که دزدیده شده و از میان هزاران پاسپرت به شما شبیه تر است گاهی با دستگاههای تشخیص شباهت چهره میتوانند چهره نزدیک شما را پیدا کنند
+پاسپرت چنجی : پاسپرت واقعی که عکس آن با روشهای حرفه ای چنج میشود
+پاسپرت ساختگی ( فیک ) : جاعل میسازد
+اینکه کدام بهتر است. به هیچ وجه نمیشود گفت کدام بهتر است. ممکن است شباهتی خیلی به شما شبیه باشد و ممکن است نباشد . یا پاسپرت ساختگی ممکن است با کیفیت ساخته شده باشید و یا بی کیفیت . چنجی هم ممکنه حرفه ای عکسش چنج شده باشه به آماتور . یا حتی عالی چنج شده باشه اما مامور خیلی حرفه ای باشه و بفهمه و یا آماتور شده باشه به هر دیلیل چک نشه و شما رد بشید
+در گیم هوایی ( مسیر هوایی ) چه عواملی به رد شدن شما کمک میکند :
+اعتماد به نفس : شما باید عادی باشید مانند دیگر مسافرها
+آگاهی های لازم : کمی از زبان کشوری که پاسپرت آن را دارید بدانید ( مثلا اگر پاسپرت پرتغالی دارید ) چند کلمه پرتغالی و اسم روی پاسپرت تاریخ تولد .... را حفظ کنید. شاید اگر مشکوک شود از شما سوال بپرسد. شاید هم نپرسند و به شما اصلا مشکوک نشوند
+این روش حدودا برای تمام کشورهای مبدا و مقصد به همین شیوه هست . اما فقط ممکن است برخورد و قوانین هر کشور فرق کند .
+خود انداز هوایی چطور است :
+اگر شما بتوانید جاعل ( کسی که پاسپرت درست میکند یا کسی که پاسپرت دزدی میفروشد را پیدا کنید . و پاسپرت شبیه خودتان ( قد سن و چهره ) هم پیدا کنید میتوانید بلیط بخرید و در مسیر هوایی کاری که قاچاقبر میخواهد برای شما انجام دهد را خودتان انجام دهید و شانس خودتان را تست کنید . ولی باید اطلاعات پرواز را هم داشته باشید. مثلا این که از کدام ایرلاین و در چه ساعتی و به چه مقصدی و در چه فصلی از سال ... شانس بیشتری برای عبور دارید. یعنی باید آگاهیهای لازم رو داشته باشید</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۶</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 7 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-7" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — ادامه فصل سوم</span>
+          <span class="page-orig-label">برگه ۷ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">روش دوم ، سوم و چهارم مهاجرت</h2>
+          <div class="verbatim-text" data-editable="true">روش دوم ( مسیر زمینی ) ( گیم زمینی ) :
+مسیرهای زمینی بسته به کشور مبدا و مقصد کاملا فرق دارند. اما برای بستن قرار داد کلیاتی که نیاز هست بدونید رو تشریح میکنم
+مسیر زمینی به سه دسته ( گیم تاکسی . گیم تیکیتی . گیم فول جنگل ) تقسیم میشه و ممکنه ترکیبی هم باشه
+برای هر مسیر . هر گیم قیمت مشخصی داره که توی فصلهای بعدی برای هر مسیر گیم زمینی اون مسیر رو تشریح میکنم
+روش سوم : گیم دریایی
+شامل سه دسته قایق تیز پر و یاخت میشه که برای هر مسیر کاملا متفاوت هست .
+روش چهارم : کامیون
+گیم کامیون خیلی مهمه که کامیون با خبر باهش یا بی خبر . بیخبر انیطوری هست که راننده اطلاع نداره و قاچاقبر برزنت کامیون رو با تیغ باز میکنه و یا پلمپ درب اصلی کانتینر رو باز میکنه و شما رو داخل میکنه و دوباره پلمپ میکنه . باخبر هم که مشخصه راننده میدونه . برای هر مسیر این گیم شرایط کاملا متفاوی داره و هر مرزبانی سختیگیری متفاوتی داره</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۷</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 8 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-8" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل چهارم</span>
+          <span class="page-orig-label">برگه ۸ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">فصل چهار : مسیرهای مهاجرت</h2>
+          <div class="verbatim-text" data-editable="true">مسیرهای مهاجرت از ایران به اروپا 5 دسته تقسیم میشه
+بخش اول ایران به ترکیه :
+بخش دوم خروج از ترکیه ( مهمترین پر هزینه ترین و سخت ترین بخش ) :
+بخش سوم کشورهای بلکان :
+بخش چهارم در اروپا :
+بخش پنجم اروپا به انگلیس :
+به ترتیب سختی و هزینه ( هر چه سخت تر پر هزینه تر )
+دو . یک . سه . پنج . چهار</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۸</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 9 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-9" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل چهارم (بخش اول)</span>
+          <span class="page-orig-label">برگه ۹ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">بخش اول ایران به ترکیه :</h2>
+          <div class="verbatim-text" data-editable="true">اگر میتونید با پاسپرت خودتون از ایران بیایین ترکیه نیاز نیست این بخش رو بخوانید .
+اما اگر اتباع . ممنوع الخروج . سرباز فراری یا .... هستید و پاس ندارید. دو روش وجود دارد که بشدت پر هزینه شده است .
+روش اول برای شما مدارکی درست میکنند و حدودا 5500 یورو هزینه میگیرند و از مررز به راحتی رد میشوید . روش دوم از کوه که فکر نمیکنم همون هم کمتر از 4000 تا 4500 بگیرند .</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۹</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 10 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-10" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل چهارم (بخش دوم)</span>
+          <span class="page-orig-label">برگه ۱۰ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">بخش دوم خروج از ترکیه ( مهمترین بخش ) :</h2>
+          <div class="verbatim-text" data-editable="true">برای خروج از ترکیه به علت سخت بودن قاچاقبرها روشهای زیادی درست کردن . به ترتیب برسی میکنیم ( ریسک . هزینه . شرایط . امکانات ... )
+گیم هوایی ترکیه به بالکان و شنگن
+ترکیه به بالکان : قیمت منصفانه بین 6 تا 8 هزار یورو .. اگر به بالکان رسیدید باز هم باید حددودا 1000 تا 1500 یورو هزینه کنید تا به شنگن برسید اما امکان برگشت و دیپرتی صفر میشود
+ترکیه به اروپا مستقیم 8 تا 11 هزار یورو . این مسیر ساده تر است . اما شانس رسیدن کمتری دارید</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۰</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 11 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-11" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — گیم‌های زمینی خروج از ترکیه</span>
+          <span class="page-orig-label">برگه ۱۱ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">گیم های زمینی خروج از ترکیه :</h2>
+          <div class="verbatim-text" data-editable="true">دو مسیر دارد مسیر بلغار و مسیر یونان
+ابتدا مسیر یونان رو برسی میکنیم
+سه روش زمینی . تاکسی . پلیس با خبر . تیکت . فول پیاده
+کلا چهار تا هزینه اصلی داره تاکسی تا لب مرز قایق عبور از رودخونه . اگر راه بلد داشته باشه هزینه راه بلد و بعد از پیاده روی اگر تاکسی باشه هزینه تاکسی اگر تیکت باشه هزینه تیکت
+در هر چهار روش ابتدا قاچاقبر باید شما رو با تاکسی تا لب مرز یونان بیاره و با قایق شما رو از رودخونه ی مرزی مریچ رد کنه و بعد اون 4 تا حالت پیش میاد
+1 گیم تاکسی
+پول رو توی صرفی میگذارید. قیمت برای سالونیک 4500 تا 5000 برای آتن 5500 نت 6000
+مشکل سالونیک این هست که اگر شما رو سالونیک بگیرند و دیپرت ترکیه کنند همه ی 5000 یورویی که آزاد شده از بین میره . اما اگر تا آتن با قاچاقبر قرار داد ببندید پول توی آتن آزاد میشه ( آتن جای امنی که دیگه برگشت و دیپرتی نداره ) و اگر توی سالونیک بگیرن و دیپرت بشید. پول به خودتون بر میگرده . ضمنا برای هر شهری قیمت تاکسی متفاوت هست . اگر لب مرز بیاد این قیمت هست اما اگر تا شهر الکساندار پلیس کوموتونی و یا زانتی برید قیمت فرق داره . یه جورایی میشه گیم تاکسی خود انداز
+بعضی گیم ها هم هست که خودتون با پول خودتون تاکسی تا لب مریچ میگیرید خودتون پول قایق میدید و تا کوموتینی یا زانتی میایید و فقط هزینه ی تاکسی آخر رو میدید و همه با ریسک و هزینه خودتون اما بجای 5000 تا فقط €1000 تا 2000 € میدید
+2 گیم پلیسی</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۱</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 12 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-12" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — ادامه مسیر یونان</span>
+          <span class="page-orig-label">برگه ۱۲ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <div class="verbatim-text" data-editable="true">وقتی وارد یونان شدید پلیس میاد شما رو میگیره و میبره کمپ 20 روزی کمپ میمونید و به شما برگه میده و دیگه توی یونان آزاد هستید . حدودا 6500 میگیرن
+3 گیم تیکتی ( خود انداز و با قاچاقبر ) توی یکی از شهرهای یونان باید سوار قطار یا اتوبوس بشید . تیکت آنلاین هم میشه خرید اتوبوس توی شهرهای ارستیادا الکساندر پلیس کوموتینی . زانتی و کاوالا داره
+اما قطار زیاد استگاه داره که علامت زدم توی این مپ ( نقاط زرد رنگ )
+گاهی افراد سود جو به شما آی دی کارتی که 10 یورو ارزش نداره رو 300 یورو میدن و به شما میگن بدون آی دی کارت نمیتونید سوار اتوبوس و قطار بشید. در حالی که با همون آی دی کارت هم نمیشه
+4 گیم فول جنگل
+بعد از ورود به خاک یونان حدودا 14 تا 21 روز پیاده میرید و به سالونیک میرسید. توجه داشته باشید که باید آگاهی کامل از نقطه های خرید و لوازم مورد نیاز داشته باشید. آمادگی جسمی مهمترین رکن این گیم هست. بعضی گروههای مهاجرتی . پولی از شما برای پشتیبانی این گیم میگیرن اگر در کارشون صادقانه باشن 200 یورو میگیند و کار رو درست انجام میدن
+اما اگر نه شما رو جای بدی میارن که مجبور بشی پول تاکسی بدی و سوبل و چوبل با شما حساب میکنند
+در هر یک از روشها . اگر شما رو توی خاک ترکیه بگیرند . یا به ایران دیپرت میشید. یا باید شش ماه تا یک سال توی کمپ بمونید تا آزاد بشید. اما اگر توی یونان بگیرند. لب مرز دیپرت ترکیه میکنند و اگر بتونید تاکسی پیدا کنید و با قاچاقبر هماهنگ باشید حدودا نفری 500 تاکسی تا استانبول میگیره و باز شانس رد شدن دارید. اما اگر پلیس ترکیه بگیرید باز ( یا دیپرت یا کمپپ ) اما اگر از مرز فاصله گرفته باشید یا پلیس یونان دلش بسوزه یا بچه کوچیک داشته باشید .... شاید شما رو به کمپ ببره. اما اگر توی تاکسی شما رو بگیرن . راننده زندان میره و یقینا شما رو به کمپ میبرند. احتمال برخورد بد پلیس با مردها زیاد هست و تلفن شما رو هم یا برمیداره یا میشکنه</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۲</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 13 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-13" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — گیم زمینی بلغار و پشت پرده کلاهبرداری</span>
+          <span class="page-orig-label">برگه ۱۳ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">گیم زمینی بلغار</h2>
+          <div class="verbatim-text" data-editable="true">نکته : بدترین برخورد پلیس برای این مسیر هست
+با تاکسی تا مرز بلغاز میروید . ( کل مرز دولایه سم خاردار 4 متری پوشانده شده و باید پیاده تا شهر بورگاس بروید و یا در روستاهای قبل از بورگاس ( تساروو . پریمرسکو .. ) اتوبوس بگیرید که خیلی ریسک دارد. بورگاس به صوفیا هم بهتره ظاهر خوبی داشته باشید و تک تک سوار قطار یا اتوبوس بشید . و تیکت آنلاین هم بگیرید
+نقطه ی امن توی این گیم که دیگه دیپرت نمیشید خود شهر صوفیا هست
+مچ گیری و کلاهبرداری : یکی پیدا شده بود یه قرار داد برای همین گیم داشت من خیلی روی این روش ریز شدم فهمیدم چقدر رند بازی در میاره و من مجبور شدم برای آگاهسازی مردم این متن رو درست کنم
+پشت پرده های خاموش مهاجرت
+گروه های خود انداز چکار میکنند ؟
+آنها برای رسیدن از ترکیه به ایتالیا ( از مسیر بلغار ) 800 € در صراف از شما بلاکی پول می گیرند و</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۳</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 14 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-14" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — ادامه پشت پرده گروه‌های خودانداز</span>
+          <span class="page-orig-label">برگه ۱۴ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <div class="verbatim-text" data-editable="true">میگوند در صورت رسیدن به ایتالیا پول برای آنها آزاد میشود. بنظر میرسد همه چیز منصفانه است
+اما در پشت پرده چه میگذرد ؟!
+1 هزینه یک آی دی کارت که با دستگاه فارگو 6500 چاپ میشود.
+در ایران بسته 100 عددی یک ملیون تومان است و با چاپ و طراحی 5 € نهایتا میشود و در ترکیه نهایتا 20 € هم نمی شود. آنها آی دی کارت را به شما 300 € میفروشند و هزینه پیکی که می آورد 1000 لیر می گیرند که اجباری است. یعنی لا اقل با 280 € سود.
+https://manicard.com/product/buy-pvc-card/
+2 هزینه تاکسی استانبول تا مرز بلغار که برای 4 نفر 1200 € یعنی برای هر نفر 300 € که قطعا 50 یا 100 € برای آنها سود دارد.
+3 هزینه نقطه 100 € که قبل از شروع پیاده روی آزاد میشود.
+یعنی تا این جا 280+100+100=480 سود قطعی آنها در صورت رسیدن یا نرسیدن شما
+و اگر شما برگشت بخوریید و پلیس شما را بگیرد.
+آنها 480 € از ضرر شما سود میکنند.
+البته به صراف هم سود میرسانند ( چون صراف در حالت سوخت و رسیدن شما پول امانت داری را بر میدارد و آگاهانه این کار را میکند
+صراف های معتبر و منصف . پول این کثافت کاریها را اصلا اوکی نمی گیرند
+و خیلی واضح است که محال است بیشتر از 50 % تیمها عبور کنند با یک حساب کتاب سر انگشتی اگر ماهی 100 نفر بفرستند 80 نفر برگشت بخورد
+80*480=38400
+سی و هشت هزار و چهارصد دست در خون ملت میکنند و یک لشکر آدم رو نا امید میکنند
+حالا هزینههای جانبی که مهاجر ضرر میکنه
+1 هزینه تجهیزات
+2 هزینه اقامت در ترکیه
+3 هزینه بلیط رفت و برگشت ترکیه به ایران و ایران به ترکیه
+4 هزینه پاسپرت گرفتن دوباره ایران
+اگر آنها همه چیز را به شما بگویند ( مخصوصا آمار درصد سوخته ها در برابر رد شده ها ) و بعد با شما این</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۴</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 15 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-15" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — ادامه پشت پرده گروه‌های خودانداز</span>
+          <span class="page-orig-label">برگه ۱۵ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <div class="verbatim-text" data-editable="true">قرار داد را آگاهانه ببندند مشکلی نیست اما با هیله گری و پنهانکاری این کار رو میکنند
+چرا باور داریم بیشتر از 80 % میسوزند ؟
+چون اگر 50 % می سوختند
+آنها بجای 800 € از مشتری 1600 € درخواست میکردند و همه ی هزینه ها و ریسک گیم را متقبل میشدند.
+اما اگر به آنها بگویید با چه مبلغی ریسک گیم رو قبول میکنی
+با 5 هزار هم این کار رو نمیکنن
+خیلی خلاصه
+€ 500 هدیه بده
+بعد خودت برو . من هم هیچ هزینه ای برات نمیکنم نهایتا چند تا اطلاعات در اختیارت میگذارم
+اگر هم رسیدی 800 تا دیگه بده
+نرسیدی هم خاک بر سرت میخواستی حواست رو جمع کنی احمق
+اگر هم اعتراض کنی از گروه اخراجت میکنم</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۵</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 16 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-16" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — گیم کشتی و قایق</span>
+          <span class="page-orig-label">برگه ۱۶ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">گیم کشتی</h2>
+          <div class="verbatim-text" data-editable="true">این گیم سال 2021 حدودا جدی شد و تا اوایل تابستان 2025 هم خوب کار میکرد ( قیمت 6 تا 10 هزار یورو ) که پلیس ترکیه 95% جلوش رو گرفت
+اینطوری بود که 50 تا 100 نفر حتی بیشتر مسافر رو سوار کشتی میکردن و به آبهای ایتالیا میرسیدند و اونجا پلیس ایتالیا میومد و همه رو میگرفت . اما چند باری موج رو چک نکردند و چند تاکشتی غرق شد
+گیم قایق تا جزایر یونان
+*****</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۶</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 17 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-17" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — گیم کامیون</span>
+          <span class="page-orig-label">برگه ۱۷ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">گیم کامیون :</h2>
+          <div class="verbatim-text" data-editable="true">از ترکیه گیم کامیون بی خبر نشنیدم و فکر هم نمیکنم بشه
+اما کامیون با خبر اینطوری هست که کامیونها کاملا چک مشن و پلمپ میشن و اگر توی راه بی دلیل جایی بمونن فوری پلیس میاد میگه چرا موندی . چک میشن
+و فقط توی پمپ بنزینها میشه سوار شد. که هماهنگی زیاد میخوهد و فقط هم توی زمستون میشه . تابستون آدم خفه میشه از گرما
+حدودا قیمت 5 تا 6500 هست و تا مقدونیه یا صربستان میبرد</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۷</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 18 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-18" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — بخش سوم (کشورهای بالکان)</span>
+          <span class="page-orig-label">برگه ۱۸ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">بخش سوم کشورهای بلکان :</h2>
+          <div class="verbatim-text" data-editable="true">اگر شما به هر نوع گیمی به یونان و یا کشورهای بالکان رسیدید دو راه دارید
+یا باید از یونان گیم هوایی بزنید به شنگن ( قیمت 2 تا 3 هزار یورو ) و یا این که مسیر زمینی بیایید
+فقط مسیر بوسنی به کرواسی سخت هست بقیه مسیرها حدودا راحته
+من نمونه ای از روش رد شدن از این مرزها رو میگذارم ببنید چطور اداره میشه
+تخصص من که این کتاب رو مینویسم دقیقا همین بخش هست ( حوزه بالکان )
+مثلا اسلونی به ایتالیا</div>
+          <div class="route-Links-box" data-editable="true">
+            <div><strong>Logatec to Nova Gorica to Gorizia (Italy)</strong></div>
+            <div>1 - 31 min (2.1 km): <a href="https://maps.app.goo.gl/SJNymqFD3duqZUkf9" target="_blank" rel="noopener">https://maps.app.goo.gl/SJNymqFD3duqZUkf9</a></div>
+            <div>2 - 24 min: <a href="https://maps.app.goo.gl/cgKTHeabR4e1bS6f7" target="_blank" rel="noopener">https://maps.app.goo.gl/cgKTHeabR4e1bS6f7</a></div>
+            <div>3 - 14 min: <a href="https://maps.app.goo.gl/dYp9vzLiqiCJaFzo6" target="_blank" rel="noopener">https://maps.app.goo.gl/dYp9vzLiqiCJaFzo6</a></div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۸</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 19 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-19" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — ادامه لینک‌های مسیر بالکان</span>
+          <span class="page-orig-label">برگه ۱۹ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <div class="route-Links-box" data-editable="true">
+            <div>4 - 1:20 min: <a href="https://maps.app.goo.gl/GQQngbRcF60qLcd28" target="_blank" rel="noopener">https://maps.app.goo.gl/GQQngbRcF60qLcd28</a></div>
+            <div>5 - 18 min (1.3 km): <a href="https://maps.app.goo.gl/idsbTqnPdJfDtV719" target="_blank" rel="noopener">https://maps.app.goo.gl/idsbTqnPdJfDtV719</a></div>
+            <div>6 - 8 min (600 m): <a href="https://maps.app.goo.gl/W3LhPnuZjTJbpRsH7" target="_blank" rel="noopener">https://maps.app.goo.gl/W3LhPnuZjTJbpRsH7</a></div>
+            <div>7 - (6 min) (3.2 km): <a href="https://maps.app.goo.gl/yiymdyGEnU3hq6j79" target="_blank" rel="noopener">https://maps.app.goo.gl/yiymdyGEnU3hq6j79</a></div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۱۹</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 20 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-20" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — بخش چهارم و پنجم</span>
+          <span class="page-orig-label">برگه ۲۰ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">بخش چهارم در اروپا و بخش پنجم اروپا به انگلیس :</h2>
+          <div class="verbatim-text" data-editable="true">بخش چهارم در اروپا :
+ساده ترین بخش حدودا با خرید یه بلیط معمولی میشه کل کشورهای اروپایی رو جا به جا شد . یه چند تا قلق ساده هم داره البته
+بخش پنجم اروپا به انگلیس :
+این بخش با چند روش میشه اومد
+1 هوایی قیمت حدودا 5 تا 7 هزار یورو
+2 دریایی ، حدودا با 1 تا 2 هزار یورو
+3 کامیون که من چیزی ازش نمیدونم و روش خیلی معمولی هم نیست .</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۰</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 21 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-21" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل پنجم (قوانین)</span>
+          <span class="page-orig-label">برگه ۲۱ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">قوانین</h2>
+          <div class="verbatim-text" data-editable="true">قوانین حیاتی دنیای مهاجرت
+قانون دابلین : طبق عهد نامه ی دابلین اگر توی یه کشور اروپایی اعلام پناهندگی کردید ( یعنی اثر انگشت پناهندگی دادید ) و بعد دوباره به کشور دیگر اروپایی رفتید و اون جا هم اعلام پناهندگی کردید احتمال زیادی وجود داره که شما رو به کشور اول برگردونن. البته هیچ چیزی صد در صدی نیست و خیلی مراحل و کاغذ بازی داره که هر کدوم از این کاغذ بازی ها تایم داره .
+ابتدا کشور دوم به کشور اول نامه میده که این پناهجو رو میخواهید . اگر بگه خیر بخشیده میشه . اگر بگه بله بفرستش پس . باز باید کشور دوم توی مدت مشخصی مهاجر رو برگردونه که اگر توی اون مدت دیپرت نکرد . باز اثر انگشت پناهندگی اش بخشیده میشه . برای خانواده ها هم این قانون رو ساده تر میگیرند
+البته یونان و ایتالیا چون کشورهای بین راه هستن. این قانون رو نپذیرفتن و انگلیس هم کلا از اتحادیه اروپا خارج شد.
+الحاق :
+قانون الحاق خانواده به این معنی هست که اگر اگر فردی به کشور اروپایی بیاد و در خواست پناهندگی او پذیرفته بشه . میتونه درخواست بده که خانواده اش هم بعدش بهش بپیوندند .
+خانواده یعنی چه کسانی : خانواده یعنی فرزند زیر 18 سال و همسر</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۱</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 22 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-22" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل ششم (آمارها)</span>
+          <span class="page-orig-label">برگه ۲۲ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">آمارها :</h2>
+          <div class="verbatim-text" data-editable="true">آمارها :</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۲</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 23 (Normal, Detailed) ================= -->
+      <article class="word-page" id="page-23" data-modes="normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — فصل هفتم (سوالات عمومی)</span>
+          <span class="page-orig-label">برگه ۲۳ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">سوالات عمومی :</h2>
+          <div class="verbatim-text" data-editable="true">آیا توی کشورهای اروپایی کار گیرم میاد :
+این دسته سوالت کلیشه ای که معمولا افرادی که هیچ آگاهی از دنیای مهاجرت و پناهندگی ندارند میپرسند
+وقتی شما اعلام درخواست پناهندگی میکنید بهترین حالت از بین دیگر روشها هست . چن روش های دیگه ( مثل ویزای کاری و دانشجویی و حتی ازدواج ) اینگونه هست که دولت میگه تو باید کار کنی و مالیات بدی. اما شیوه پناهندگی تا زمانی که بتونی روی پای خودت وایسی دولت از مردم مالیات میگیره و به پناهنده ها خدمات میده . مکان اسکان حثوث و غذا و برای این که این بار رو از روی دوش خودش برداره بهت کار میده هر کاری که بخوابی اداره کار برات پیدا میکنه . کالج هم رایگان هست
+کدام کشور اروپایی برای اعلام درخواست پناهندگی بهتره : این سوال هم خیلی مسخره هست . نسبت به شرایط هر کسی فرق داره. یکی کشوری که زبانش انگلیسی باشه برایش مهمه . یکی اثر انگشت دابلین داره و باید بره انگلیس یکی اقوام داره توی مثلا فلان کشور . اما کیفیت زندگی توی همه ی کشورها حدودا یکی هست. باید شرایط رو کامل تشریح کنه تا مشخص بشه کدوم شکور براش بهتره
+وقتی به کشور مقصد برسم چه چیزی در انتظار من هست
+اعلام پانهندگی میکنی . کیس راه میدید</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۳</span>
+        </div>
+      </article>
+
+      <!-- ================= PAGE 24 (Summary, Normal, Detailed) ================= -->
+      <article class="word-page" id="page-24" data-modes="summary,normal,detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی — بخش پایانی</span>
+          <span class="page-orig-label">برگه ۲۴ کتاب</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">بخش پایانی :</h2>
+          <div class="verbatim-text" data-editable="true">این که چه گیمی به درد شما میخوره به خیلی عوامل بستگی داره میزان آگاهی آپدیت شما از تمام گیم ها . میزان آشنایی با عوامل گیمی که انتخواب کردید ( جاعل پاسپرت . راه بلد . تاکسی .... ) و امکانات گیم . وضعیت جسمی . پول . تیپ و ظاهر تسلط به زبان انگلیسی آگاهی های آپدیت از مسیرها ( کدومش الان داره خوب رد میشه مسافر ) ( به روز بودن اطلاعات ) قاچاقبر خوب شناختن و ...... کارگزار خوب .
+کار گذار کسی که شما رو به قاچاقبرهای خوب هر مسیر معرفی میکنه ( چون قاچاقبر فقط مسیر خودش رو خوب بلد هست و قطعا همون رو با اغراق تبلیغ میکنه. اما کارگزار با همه در ارتباط هست و آمار تمام مسیرها و قاچاقبرها صرافها..... رو باید داشته باشه .</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۴</span>
+        </div>
+      </article>
+
+      <!-- ================= BONUS PAGE 25 (Detailed Mode Only): COST & ESCROW CALCULATOR ================= -->
+      <article class="word-page" id="page-25" data-modes="detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>پیوست تحلیلی نسخه مفصل — ابزار محاسبه هزینه و اسکونت صرافی</span>
+          <span class="page-orig-label">پیوست ۱ (نسخه مفصل)</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">پیوست اول (نسخه مفصل) : ماشین‌حساب هوشمند هزینه گیم و صرافی</h2>
+          <p data-editable="true">بر اساس اطلاعات فصل دوم و چهارم کتاب، پول را هرگز نباید به دوست، فامیل یا قاچاقبر بدهید بلکه باید در صرافی معتبر (امانت‌دار خانه) بگذارید که بین ۵٪ تا ۸٪ اسکونت (کمیسیون) دریافت می‌کند. در زیر هزینه دقیق هر مسیر را محاسبه کنید:</p>
+          <div class="bonus-tool-box">
+            <div class="form-group">
+              <label>انتخاب مرحله یا مسیر از کتاب:</label>
+              <select id="routeSelect" onchange="calculateRouteCost()">
+                <option value="5500|5500|ایران به ترکیه (با درست کردن مدارک)">بخش ۱: ایران به ترکیه - مدارک (حدود ۵۵۰۰ یورو)</option>
+                <option value="4000|4500|ایران به ترکیه (از مسیر کوه)">بخش ۱: ایران به ترکیه - کوه (۴۰۰۰ تا ۴۵۰۰ یورو)</option>
+                <option value="6000|8000|ترکیه به بالکان (گیم هوایی)">بخش ۲: ترکیه به بالکان - هوایی (۶۰۰۰ تا ۸۰۰۰ یورو)</option>
+                <option value="8000|11000|ترکیه به اروپا مستقیم (گیم هوایی)">بخش ۲: ترکیه به اروپا مستقیم - هوایی (۸۰۰۰ تا ۱۱۰۰۰ یورو)</option>
+                <option value="4500|5000|ترکیه به یونان - گیم تاکسی تا سالونیک (ریسک دیپورت)">بخش ۲: یونان - تاکسی تا سالونیک (۴۵۰۰ تا ۵۰۰۰ یورو)</option>
+                <option value="5500|6000|ترکیه به یونان - گیم تاکسی تا آتن (نقطه امن)">بخش ۲: یونان - تاکسی تا آتن / نقطه امن (۵۵۰۰ تا ۶۰۰۰ یورو)</option>
+                <option value="1000|2000|ترکیه به یونان - تاکسی خودانداز تا کوموتینی/زانتی">بخش ۲: یونان - تاکسی خودانداز (۱۰۰۰ تا ۲۰۰۰ یورو)</option>
+                <option value="6500|6500|ترکیه به یونان - گیم پلیسی (۲۰ روز کمپ)">بخش ۲: یونان - گیم پلیسی (حدود ۶۵۰۰ یورو)</option>
+                <option value="5000|6500|خروج از ترکیه - گیم کامیون باخبر (زمستان)">بخش ۲: گیم کامیون باخبر تا مقدونیه/صربستان (۵۰۰۰ تا ۶۵۰۰ یورو)</option>
+                <option value="2000|3000|یونان به شنگن (گیم هوایی)">بخش ۳: یونان به شنگن - هوایی (۲۰۰۰ تا ۳۰۰۰ یورو)</option>
+                <option value="5000|7000|اروپا به انگلیس (گیم هوایی)">بخش ۵: اروپا به انگلیس - هوایی (۵۰۰۰ تا ۷۰۰۰ یورو)</option>
+                <option value="1000|2000|اروپا به انگلیس (گیم دریایی)">بخش ۵: اروپا به انگلیس - دریایی (۱۰۰۰ تا ۲۰۰۰ یورو)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>درصد اسکونت (کمیسیون صرافی بین ۵٪ تا ۸٪): <strong id="commLabel">6.5%</strong></label>
+              <input type="range" id="commRange" min="5" max="8" step="0.5" value="6.5" oninput="calculateRouteCost()">
+            </div>
+            <div class="form-group">
+              <label>تعداد نفرات:</label>
+              <input type="number" id="personCount" min="1" max="10" value="1" oninput="calculateRouteCost()">
+            </div>
+            <div id="calcResultBox" style="margin-top:1rem; padding:1rem; background:var(--paper-bg); border:1px solid var(--paper-border); border-radius:6px;"></div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۵</span>
+        </div>
+      </article>
+
+      <!-- ================= BONUS PAGE 26 (Detailed Mode Only): SCAM SIMULATOR ================= -->
+      <article class="word-page" id="page-26" data-modes="detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>پیوست تحلیلی نسخه مفصل — کالبدشکافی کلاهبرداری گروه‌های خودانداز</span>
+          <span class="page-orig-label">پیوست ۲ (نسخه مفصل)</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">پیوست دوم (نسخه مفصل) : شبیه‌ساز سود پنهان گروه‌های خودانداز</h2>
+          <p data-editable="true">بر اساس صفحات ۱۳ تا ۱۵ کتاب، گروه‌های خودانداز در مسیر بلغار به ایتالیا با دریافت هزینه‌های جانبی اجباری پیش از حرکت، از سوختن و دستگیری مسافران سود قطعی ۴۸۰ یورویی به جیب می‌زنند:</p>
+          <div class="bonus-tool-box">
+            <ul style="list-style:none; margin-bottom:1rem;">
+              <li>• فروش آی‌دی کارت (قیمت تمام‌شده زیر ۲۰ یورو) به مبلغ ۳۰۰ یورو + ۱۰۰۰ لیر پیک = <strong>حداقل ۲۸۰ یورو سود</strong></li>
+              <li>• تاکسی استانبول تا مرز بلغار (۴ نفر ۱۲۰۰ یورو، نفری ۳۰۰ یورو) = <strong>۵۰ تا ۱۰۰ یورو سود</strong></li>
+              <li>• هزینه نقطه (آزادسازی قبل از شروع پیاده‌روی) = <strong>۱۰۰ یورو سود</strong></li>
+              <li style="margin-top:0.5rem; color:var(--danger); font-weight:800;">جمع سود قطعی از هر نفر (چه برسد چه دیپورت شود): ۲۸۰ + ۱۰۰ + ۱۰۰ = ۴۸۰ یورو</li>
+            </ul>
+            <label>تعداد مسافران ارسالی در ماه را تغییر دهید (مثال کتاب: ۱۰۰ نفر با ۸۰٪ سوخت):</label>
+            <input type="range" id="scamPeople" min="10" max="300" step="10" value="100" style="width:100%; margin:0.75rem 0;" oninput="updateScamCalc(this.value)">
+            <div id="scamResultText" style="padding:1rem; background:var(--paper-bg); border:1px solid var(--paper-border); border-radius:6px;"></div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۶</span>
+        </div>
+      </article>
+
+      <!-- ================= BONUS PAGE 27 (Detailed Mode Only): SAVE POINTS & BALKAN TABLE ================= -->
+      <article class="word-page" id="page-27" data-modes="detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>پیوست تحلیلی نسخه مفصل — جدول نقاط امن (Save Points)</span>
+          <span class="page-orig-label">پیوست ۳ (نسخه مفصل)</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">پیوست سوم (نسخه مفصل) : راهنمای نقاط امن (Save) در مسیر</h2>
+          <div class="bonus-tool-box" data-editable="true">
+            <p style="margin-bottom:0.85rem;"><strong>۱. وضعیت در خاک ترکیه:</strong> در هر نقطه‌ای پلیس متوجه شود قصد گیم دارید و دستگیر شوید، یا به ایران دیپورت می‌شوید یا ۶ ماه تا ۱ سال در کمپ خواهید بود.</p>
+            <p style="margin-bottom:0.85rem;"><strong>۲. نقطه امن در مسیر یونان:</strong> باید از شهر <strong>سالونیک</strong> ۴۰ تا ۵۰ کیلومتر عبور کرده باشید. در گیم تاکسی نیز قرارداد را تا <strong>آتن</strong> ببندید تا اگر در سالونیک دستگیر و دیپورت شدید، پول شما در صرافی نسوزد.</p>
+            <p style="margin-bottom:0.85rem;"><strong>۳. نقطه امن در مسیر بلغارستان:</strong> بدترین برخورد پلیس مربوط به این مسیر است. مرز دارای دولایه سیم خاردار ۴ متری است و نقطه امن که دیگر دیپورت نمی‌شوید خود شهر <strong>صوفیا</strong> است.</p>
+            <p><strong>۴. پس از عبور از سه کشور اول:</strong> اگر از ترکیه، یونان و بلغارستان عبور کنید دیگر هرگز به عقب برنمی‌گردید و Save می‌شوید. در کشورهای بعدی در بدترین حالت (دستگیری لب مرز) فقط یک کشور به عقب برگردانده می‌شوید و در بالکان فقط مرز <strong>بوسنی به کرواسی</strong> سخت است.</p>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۷</span>
+        </div>
+      </article>
+
+      <!-- ================= BONUS PAGE 28 (Detailed Mode Only): READINESS CHECKLIST ================= -->
+      <article class="word-page" id="page-28" data-modes="detailed">
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>پیوست تحلیلی نسخه مفصل — خودارزیابی شرایط مهاجر</span>
+          <span class="page-orig-label">پیوست ۴ (نسخه مفصل)</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true">پیوست چهارم (نسخه مفصل) : چک‌لیست آمادگی پیش از شروع سفر</h2>
+          <div class="bonus-tool-box">
+            <div style="display:flex; flex-direction:column; gap:0.75rem;">
+              <label><input type="checkbox" class="ready-chk" onchange="evalReadiness()"> یورو نقدی آماده دارم (مجبور به فروش ملک و ماشین نیستم چون هیچ روشی بالای ۷۰٪ شانس ندارد و در تبدیل ارز دو بار ضرر می‌کنم).</label>
+              <label><input type="checkbox" class="ready-chk" onchange="evalReadiness()"> می‌دانم پول را فقط باید در «صرافی معتبر» بگذارم و به هیچ دوست، رفیق، قوم و خویش یا قاچاقبری اعتماد نکنم.</label>
+              <label><input type="checkbox" class="ready-chk" onchange="evalReadiness()"> بابت «کیس پناهندگی» به کسی پول نمی‌دهم چون با توجه به شرایط حقوق بشری ایران، موضوع اصلی رسیدن است.</label>
+              <label><input type="checkbox" class="ready-chk" onchange="evalReadiness()"> با قوانین دابلین (اثر انگشت)، کیس راه و شرایط کمپ‌ها آشنایی کامل دارم.</label>
+              <label><input type="checkbox" class="ready-chk" onchange="evalReadiness()"> اطلاعات آپدیت از مسیرها، آمادگی جسمی، تیپ و ظاهر مناسب و شناخت کارگزار خوب را دارم.</label>
+            </div>
+            <div id="readinessOutput" style="margin-top:1.25rem; padding:1rem; background:var(--paper-bg); border-right:4px solid var(--word-blue); border-radius:4px;">
+              گزینه‌های بالا را علامت بزنید تا وضعیت آمادگی شما بر اساس معیارهای کتاب سنجیده شود.
+            </div>
+          </div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه ۲۸</span>
+        </div>
+      </article>
+
+    </main>
+  </div>
+
+  <!-- 4. MICROSOFT WORD BOTTOM STATUS BAR -->
+  <footer class="word-status-bar">
+    <div class="status-group">
+      <span id="statusBarPages">صفحه ۱ از ۲۴</span>
+      <span>|</span>
+      <span id="statusBarMode">حالت نمایش: معمولی (کتاب کامل)</span>
+      <span>|</span>
+      <span>زبان: فارسی (ایران)</span>
+    </div>
+    <div class="status-group">
+      <span>اندازه برگه کاغذ (Zoom):</span>
+      <input type="range" min="0.7" max="1.25" step="0.05" value="1" style="width:90px; cursor:pointer;" oninput="changeZoom(this.value)">
+      <span id="zoomLabel">100%</span>
+    </div>
+  </footer>
+
+  <script>
+    // ================== STATE & INITIALIZATION ==================
+    let isEditMode = false;
+    let blurProtectionEnabled = true;
+    let currentFontSize = 16.5;
+    let currentReadingMode = 'normal'; // 'summary' | 'normal' | 'detailed'
+    const STORAGE_KEY = 'pouyan_word_book_v3';
+
+    // Cursor & Media Insertion State
+    let savedRange = null;
+    let lastActiveEditable = null;
+    let currentMediaType = 'image';
+    let currentMediaDataUrl = '';
+    let currentSelectedFileName = '';
+    let currentSelectedFileSize = '';
+    let mediaRecorder = null;
+    let audioChunks = [];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedHTML = localStorage.getItem(STORAGE_KEY);
+      if (savedHTML) {
+        document.getElementById('bookContainer').innerHTML = savedHTML;
+      }
+      calculateRouteCost();
+      updateScamCalc(100);
+      updateAllModeCounts();
+      applyReadingMode('normal', false);
+      setupCursorTracking();
+    });
+
+    // ================== 3 READING MODES (SUMMARY / NORMAL / DETAILED) ==================
+    function openModeModal() {
+      updateAllModeCounts();
+      document.getElementById('mode-selector-modal').classList.remove('hidden');
+    }
+
+    function selectReadingMode(mode) {
+      applyReadingMode(mode, true);
+      document.getElementById('mode-selector-modal').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateAllModeCounts() {
+      const pages = document.querySelectorAll('.word-page');
+      let sumCount = 0, normCount = 0, detCount = 0;
+
+      pages.forEach(p => {
+        const modes = (p.getAttribute('data-modes') || '').split(',');
+        if (modes.includes('summary')) sumCount++;
+        if (modes.includes('normal')) normCount++;
+        if (modes.includes('detailed')) detCount++;
+      });
+
+      document.getElementById('summaryPageCountBadge').textContent = sumCount + ' صفحه';
+      document.getElementById('normalPageCountBadge').textContent = normCount + ' صفحه';
+      document.getElementById('detailedPageCountBadge').textContent = detCount + ' صفحه';
+
+      document.querySelectorAll('.count-summary').forEach(el => el.textContent = sumCount);
+      document.querySelectorAll('.count-normal').forEach(el => el.textContent = normCount);
+      document.querySelectorAll('.count-detailed').forEach(el => el.textContent = detCount);
+    }
+
+    function applyReadingMode(mode, notify = true) {
+      currentReadingMode = mode;
+      const pages = document.querySelectorAll('.word-page');
+      let visibleIndex = 0;
+      let totalVisible = 0;
+
+      pages.forEach(p => {
+        const modes = (p.getAttribute('data-modes') || '').split(',');
+        if (modes.includes(mode) || isEditMode) {
+          totalVisible++;
+        }
+      });
+
+      pages.forEach(p => {
+        const modes = (p.getAttribute('data-modes') || '').split(',');
+        if (modes.includes(mode) || isEditMode) {
+          p.style.display = 'flex';
+          visibleIndex++;
+          const pill = p.querySelector('.page-number-pill');
+          if (pill) {
+            pill.textContent = `صفحه ${visibleIndex} از ${totalVisible}`;
+          }
+        } else {
+          p.style.display = 'none';
+        }
+      });
+
+      // Update Ribbon Active Buttons
+      document.getElementById('btnModeSummary').classList.toggle('active-mode', mode === 'summary');
+      document.getElementById('btnModeNormal').classList.toggle('active-mode', mode === 'normal');
+      document.getElementById('btnModeDetailed').classList.toggle('active-mode', mode === 'detailed');
+
+      const modeNames = {
+        summary: `نسخه خلاصه (${totalVisible} صفحه)`,
+        normal: `نسخه معمولی (${totalVisible} صفحه)`,
+        detailed: `نسخه مفصل (${totalVisible} صفحه)`
+      };
+
+      document.getElementById('statusBarPages').textContent = `تعداد صفحات فعال: ${totalVisible} صفحه`;
+      document.getElementById('statusBarMode').textContent = `حالت نمایش: ${modeNames[mode]}`;
+      document.getElementById('sidebarPageTotal').textContent = `${totalVisible} صفحه`;
+
+      rebuildTOC();
+      if (notify) {
+        showToast(`📖 نمایش کتاب روی «${modeNames[mode]}» تنظیم شد.`);
+      }
+    }
+
+    function togglePageMode(checkbox, modeName) {
+      const page = checkbox.closest('.word-page');
+      let modes = (page.getAttribute('data-modes') || '').split(',').filter(Boolean);
+      if (checkbox.checked && !modes.includes(modeName)) {
+        modes.push(modeName);
+      } else if (!checkbox.checked) {
+        modes = modes.filter(m => m !== modeName);
+      }
+      page.setAttribute('data-modes', modes.join(','));
+      updateAllModeCounts();
+      applyReadingMode(currentReadingMode, false);
+    }
+
+    // ================== CURSOR TRACKING & MEDIA INSERTION ==================
+    function setupCursorTracking() {
+      document.addEventListener('selectionchange', () => {
+        if (!isEditMode) return;
+        const sel = window.getSelection();
+        if (sel.rangeCount > 0) {
+          const range = sel.getRangeAt(0);
+          const container = range.commonAncestorContainer;
+          const editableParent = container.nodeType === 3
+            ? container.parentElement.closest('[data-editable="true"]')
+            : container.closest('[data-editable="true"]');
+
+          if (editableParent) {
+            savedRange = range.cloneRange();
+            lastActiveEditable = editableParent;
+            const page = editableParent.closest('.word-page');
+            const label = page ? (page.querySelector('.page-orig-label')?.textContent || 'صفحه انتخابی') : 'متن';
+            const badge = document.getElementById('cursorTargetBadge');
+            if (badge) badge.textContent = `🎯 آماده درج رسانه در محل نشانگر (${label})`;
+          }
+        }
+      });
+    }
+
+    function openMediaModal(type) {
+      currentMediaType = type;
+      currentMediaDataUrl = '';
+      currentSelectedFileName = '';
+      currentSelectedFileSize = '';
+      document.getElementById('mediaFileInput').value = '';
+      document.getElementById('mediaUrlInput').value = '';
+      document.getElementById('mediaCaptionInput').value = '';
+      document.getElementById('recordedAudioPreview').style.display = 'none';
+      document.getElementById('recStatusText').textContent = '';
+
+      const titleEl = document.getElementById('modalTitle');
+      const fileInput = document.getElementById('mediaFileInput');
+      const voicePanel = document.getElementById('voiceRecorderPanel');
+      voicePanel.style.display = 'none';
+
+      if (type === 'image') {
+        titleEl.textContent = '🖼️ افزودن عکس در برگه وُرد';
+        fileInput.setAttribute('accept', 'image/*');
+      } else if (type === 'video') {
+        titleEl.textContent = '🎬 افزودن فیلم در برگه وُرد';
+        fileInput.setAttribute('accept', 'video/*');
+      } else if (type === 'audio') {
+        titleEl.textContent = '🎙️ افزودن ویس یا ضبط مستقیم صدا';
+        fileInput.setAttribute('accept', 'audio/*');
+        voicePanel.style.display = 'block';
+      } else if (type === 'file') {
+        titleEl.textContent = '📎 افزودن فایل ضمیمه در برگه وُرد';
+        fileInput.removeAttribute('accept');
+      }
+
+      document.getElementById('mediaModal').classList.add('active');
+    }
+
+    function closeMediaModal() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+      }
+      document.getElementById('mediaModal').classList.remove('active');
+    }
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      currentSelectedFileName = file.name;
+      currentSelectedFileSize = (file.size / 1024).toFixed(1) + ' KB';
+      if (file.size > 1024 * 1024) {
+        currentSelectedFileSize = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        currentMediaDataUrl = evt.target.result;
+        if (!document.getElementById('mediaCaptionInput').value) {
+          document.getElementById('mediaCaptionInput').value = file.name.replace(/\.[^/.]+$/, "");
+        }
+        showToast('✅ فایل آماده درج در برگه وُرد شد.');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    async function startVoiceRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioChunks = [];
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) audioChunks.push(e.data); };
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(audioChunks, { type: 'audio/webm' });
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            currentMediaDataUrl = reader.result;
+            const preview = document.getElementById('recordedAudioPreview');
+            preview.src = currentMediaDataUrl;
+            preview.style.display = 'block';
+            document.getElementById('recStatusText').textContent = '✅ صدای شما ضبط و آماده درج شد!';
+          };
+          reader.readAsDataURL(blob);
+          stream.getTracks().forEach(t => t.stop());
+        };
+        mediaRecorder.start();
+        document.getElementById('startRecBtn').style.display = 'none';
+        document.getElementById('stopRecBtn').style.display = 'inline-flex';
+        document.getElementById('recStatusText').textContent = '🔴 در حال ضبط صدا...';
+      } catch (err) {
+        alert('دسترسی به میکروفون امکان‌پذیر نشد. می‌توانید فایل صوتی را از دستگاه انتخاب کنید.');
+      }
+    }
+
+    function stopVoiceRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        document.getElementById('startRecBtn').style.display = 'inline-flex';
+        document.getElementById('stopRecBtn').style.display = 'none';
+      }
+    }
+
+    function confirmInsertMedia() {
+      const urlInput = document.getElementById('mediaUrlInput').value.trim();
+      const src = currentMediaDataUrl || urlInput;
+      if (!src) {
+        alert('لطفاً یک فایل انتخاب کنید، ویس ضبط کنید یا آدرس لینک را وارد نمایید.');
+        return;
+      }
+
+      const caption = document.getElementById('mediaCaptionInput').value.trim();
+      const widthSize = document.getElementById('mediaSizeSelect').value;
+      const alignClass = document.getElementById('mediaAlignSelect').value;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = `custom-media-block ${alignClass}`;
+      wrapper.style.width = widthSize;
+      wrapper.setAttribute('contenteditable', 'false');
+
+      let innerHTML = '';
+      if (currentMediaType === 'image') {
+        innerHTML = `<img src="${src}" alt="${caption || 'تصویر'}" draggable="false">`;
+      } else if (currentMediaType === 'video') {
+        innerHTML = `<video src="${src}" controls controlsList="nodownload" oncontextmenu="return false;"></video>`;
+      } else if (currentMediaType === 'audio') {
+        innerHTML = `
+          <div style="font-weight:700; color:var(--word-blue); font-size:0.9rem;">🎙️ ${caption || 'فایل صوتی / ویس راهنما'}</div>
+          <audio src="${src}" controls controlsList="nodownload" oncontextmenu="return false;"></audio>
+        `;
+      } else if (currentMediaType === 'file') {
+        const dlName = currentSelectedFileName || caption || 'attachment';
+        innerHTML = `
+          <div class="file-attachment-card">
+            <div>
+              <div style="font-weight:800;">📎 ${caption || dlName}</div>
+              <div style="font-size:0.78rem; color:var(--paper-muted);">${currentSelectedFileSize || 'فایل پیوست سند'}</div>
+            </div>
+            <a href="${src}" download="${dlName}" class="word-btn active-mode" style="text-decoration:none;">📥 دریافت فایل</a>
+          </div>
+        `;
+      }
+
+      const capHTML = currentMediaType !== 'file'
+        ? `<div class="media-caption" data-editable="true" contenteditable="${isEditMode}">${caption || 'توضیحات رسانه'}</div>`
+        : '';
+
+      wrapper.innerHTML = `
+        <div class="media-block-toolbar">
+          <div>
+            <button type="button" class="media-mini-btn" onclick="resizeMediaBlock(this, '35%')">۳۵٪</button>
+            <button type="button" class="media-mini-btn" onclick="resizeMediaBlock(this, '50%')">۵۰٪</button>
+            <button type="button" class="media-mini-btn" onclick="resizeMediaBlock(this, '75%')">۷۵٪</button>
+            <button type="button" class="media-mini-btn" onclick="resizeMediaBlock(this, '100%')">۱۰۰٪</button>
+          </div>
+          <div>
+            <button type="button" class="media-mini-btn" onclick="alignMediaBlock(this, 'align-right')">راست</button>
+            <button type="button" class="media-mini-btn" onclick="alignMediaBlock(this, 'align-center')">وسط</button>
+            <button type="button" class="media-mini-btn" onclick="alignMediaBlock(this, 'align-left')">چپ</button>
+            <button type="button" class="media-mini-btn" style="background:#d13438; color:#fff;" onclick="removeMediaBlock(this)">🗑️ حذف</button>
+          </div>
+        </div>
+        ${innerHTML}
+        ${capHTML}
+      `;
+
+      if (savedRange) {
+        savedRange.deleteContents();
+        savedRange.insertNode(wrapper);
+        savedRange.setStartAfter(wrapper);
+        savedRange.collapse(true);
+      } else if (lastActiveEditable) {
+        lastActiveEditable.appendChild(wrapper);
+      } else {
+        const firstVisibleBody = document.querySelector('.word-page[style*="flex"] .verbatim-text');
+        if (firstVisibleBody) firstVisibleBody.appendChild(wrapper);
+      }
+
+      closeMediaModal();
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      showToast('✅ رسانه در برگه وُرد قرار گرفت.');
+    }
+
+    function resizeMediaBlock(btn, w) {
+      const b = btn.closest('.custom-media-block');
+      if (b) b.style.width = w;
+    }
+    function alignMediaBlock(btn, cls) {
+      const b = btn.closest('.custom-media-block');
+      if (b) {
+        b.classList.remove('align-right', 'align-center', 'align-left');
+        b.classList.add(cls);
+      }
+    }
+    function removeMediaBlock(btn) {
+      if (confirm('آیا این رسانه حذف شود؟')) {
+        btn.closest('.custom-media-block').remove();
+      }
+    }
+
+    // ================== AUTHOR EDIT MODE ==================
+    function toggleEditMode() {
+      if (!isEditMode) {
+        const pass = prompt('رمز عبور پنل ویرایش نویسنده را وارد کنید (پیش‌فرض: 1234):', '1234');
+        if (pass !== '1234') {
+          showToast('❌ رمز عبور اشتباه است.');
+          return;
+        }
+        isEditMode = true;
+        document.body.classList.remove('protected-mode');
+        document.body.classList.add('edit-mode');
+        document.getElementById('admin-toolbar').classList.add('active');
+        document.getElementById('editModeBtn').textContent = '🔒 خروج و قفل ویرایش';
+        document.querySelectorAll('[data-editable="true"]').forEach(el => el.setAttribute('contenteditable', 'true'));
+        applyReadingMode(currentReadingMode, false);
+        showToast('✏️ حالت ویرایش فعال شد! تمام برگه‌ها برای ویرایش در دسترس هستند.');
+      } else {
+        isEditMode = false;
+        document.body.classList.add('protected-mode');
+        document.body.classList.remove('edit-mode');
+        document.getElementById('admin-toolbar').classList.remove('active');
+        document.getElementById('editModeBtn').textContent = '✏️ پنل ویرایش نویسنده';
+        document.querySelectorAll('[data-editable="true"]').forEach(el => el.removeAttribute('contenteditable'));
+        saveChangesToLocal();
+        updateAllModeCounts();
+        applyReadingMode(currentReadingMode, false);
+      }
+    }
+
+    function addNewWordPage() {
+      const container = document.getElementById('bookContainer');
+      const newId = 'page-custom-' + Date.now();
+      const article = document.createElement('article');
+      article.className = 'word-page';
+      article.id = newId;
+      article.setAttribute('data-modes', 'summary,normal,detailed');
+      article.innerHTML = `
+        <div class="section-edit-controls">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.4rem;">
+            <div>
+              <strong>نمایش این صفحه در:</strong>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'summary')"> خلاصه</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'normal')"> معمولی</label>
+              <label><input type="checkbox" checked onchange="togglePageMode(this, 'detailed')"> مفصل</label>
+            </div>
+            <div style="display:flex; gap:0.3rem;">
+              <button class="word-btn" onclick="moveSection(this, -1)">⬆️ بالا</button>
+              <button class="word-btn" onclick="moveSection(this, 1)">⬇️ پایین</button>
+              <button class="word-btn word-btn-danger" onclick="deleteSection(this)">🗑️ حذف برگه</button>
+            </div>
+          </div>
+        </div>
+        <div class="word-running-header">
+          <span>کتاب مهاجرت و پناهندگی</span>
+          <span class="page-orig-label" data-editable="true" contenteditable="true">برگه جدید</span>
+        </div>
+        <div class="word-page-body">
+          <h2 class="chapter-title" data-editable="true" contenteditable="true">عنوان صفحه جدید را بنویسید</h2>
+          <div class="verbatim-text" data-editable="true" contenteditable="true">متن، عکس، فیلم یا ویس خود را در این برگه وُرد وارد کنید...</div>
+        </div>
+        <div class="word-running-footer">
+          <span>نویسنده: پویان</span>
+          <span class="page-number-pill">صفحه جدید</span>
+        </div>
+      `;
+      container.appendChild(article);
+      updateAllModeCounts();
+      applyReadingMode(currentReadingMode, false);
+      article.scrollIntoView({ behavior: 'smooth' });
+      showToast('➕ برگه وُرد جدید اضافه شد.');
+    }
+
+    function deleteSection(btn) {
+      if (confirm('آیا از حذف این برگه وُرد مطمئن هستید؟')) {
+        btn.closest('.word-page').remove();
+        updateAllModeCounts();
+        applyReadingMode(currentReadingMode, false);
+        showToast('🗑️ برگه حذف شد.');
+      }
+    }
+
+    function moveSection(btn, dir) {
+      const page = btn.closest('.word-page');
+      const parent = page.parentNode;
+      if (dir === -1 && page.previousElementSibling) {
+        parent.insertBefore(page, page.previousElementSibling);
+      } else if (dir === 1 && page.nextElementSibling) {
+        parent.insertBefore(page.nextElementSibling, page);
+      }
+      applyReadingMode(currentReadingMode, false);
+    }
+
+    function saveChangesToLocal() {
+      try {
+        localStorage.setItem(STORAGE_KEY, document.getElementById('bookContainer').innerHTML);
+        showToast('💾 تمام تغییرات در مرورگر ذخیره شد.');
+      } catch (e) {
+        showToast('⚠️ برای ذخیره دائمی فایل‌های حجیم، دکمه «دانلود فایل نهایی سایت (HTML)» را بزنید.');
+      }
+    }
+
+    function resetToOriginal() {
+      if (confirm('آیا تمام تغییرات پاک شود و متن اولیه کتاب بازگردد؟')) {
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+      }
+    }
+
+    function exportStandaloneHTML() {
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelector('body').classList.add('protected-mode');
+      clone.querySelector('body').classList.remove('edit-mode');
+      clone.querySelector('#admin-toolbar').classList.remove('active');
+      clone.querySelector('#mediaModal').classList.remove('active');
+      clone.querySelector('#mode-selector-modal').classList.remove('hidden'); // So visitors see the 3 options on open!
+      clone.querySelector('#editModeBtn').textContent = '✏️ پنل ویرایش نویسنده';
+      clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+
+      const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'کتاب-مهاجرت-و-پناهندگی-پویان.html';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('📥 فایل نهایی سایت آماده شد! هنگام باز شدن توسط مردم، ۳ گزینه خلاصه/معمولی/مفصل نمایش داده می‌شود.');
+    }
+
+    function rebuildTOC() {
+      const toc = document.getElementById('tocList');
+      toc.innerHTML = '';
+      let num = 0;
+      document.querySelectorAll('.word-page').forEach(p => {
+        if (p.style.display === 'none') return;
+        num++;
+        const titleEl = p.querySelector('.chapter-title');
+        const origLabel = p.querySelector('.page-orig-label');
+        const label = titleEl ? titleEl.textContent.trim() : (origLabel ? origLabel.textContent.trim() : `صفحه ${num}`);
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#${p.id}"><strong>ص ${num}:</strong> ${label}</a>`;
+        toc.appendChild(li);
+      });
+    }
+
+    // ================== ANTI-COPY & SECURITY ==================
+    document.addEventListener('contextmenu', e => {
+      if (!isEditMode) { e.preventDefault(); showToast('🔒 کپی و کلیک راست در این کتاب غیرفعال است.'); }
+    });
+    document.addEventListener('copy', e => {
+      if (!isEditMode) { e.preventDefault(); showToast('🔒 کپی کردن متن مجاز نیست.'); }
+    });
+    document.addEventListener('cut', e => { if (!isEditMode) e.preventDefault(); });
+    document.addEventListener('dragstart', e => { if (!isEditMode) e.preventDefault(); });
+    document.addEventListener('keydown', e => {
+      if (isEditMode) return;
+      if (
+        (e.ctrlKey && ['c', 'u', 's', 'p', 'a'].includes(e.key.toLowerCase())) ||
+        (e.metaKey && ['c', 'u', 's', 'p', 'a'].includes(e.key.toLowerCase())) ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+        showToast('🔒 کلید میانبر غیرفعال است.');
+      }
+      if (e.key === 'PrintScreen') triggerBlur();
+    });
+    window.addEventListener('blur', () => {
+      if (!isEditMode && blurProtectionEnabled) triggerBlur();
+    });
+
+    function triggerBlur() { document.getElementById('security-blur').classList.add('active'); }
+    function dismissBlur() { document.getElementById('security-blur').classList.remove('active'); }
+    function toggleBlurProtection() {
+      blurProtectionEnabled = !blurProtectionEnabled;
+      document.getElementById('blurToggleBtn').textContent = blurProtectionEnabled ? '🛡️ قفل اسکرین‌شات: فعال' : '🛡️ قفل اسکرین‌شات: غیرفعال';
+    }
+
+    // ================== CALCULATORS & UI HELPERS ==================
+    function calculateRouteCost() {
+      const sel = document.getElementById('routeSelect');
+      if (!sel) return;
+      const val = sel.value.split('|');
+      const minCost = parseInt(val[0], 10);
+      const maxCost = parseInt(val[1], 10);
+      const title = val[2];
+      const comm = parseFloat(document.getElementById('commRange').value);
+      const count = parseInt(document.getElementById('personCount').value, 10) || 1;
+
+      document.getElementById('commLabel').textContent = comm + '%';
+      const totalMin = minCost * count;
+      const totalMax = maxCost * count;
+      const commMin = Math.round(totalMin * (comm / 100));
+      const commMax = Math.round(totalMax * (comm / 100));
+
+      document.getElementById('calcResultBox').innerHTML = `
+        <div style="font-weight:800; color:var(--word-blue); margin-bottom:0.4rem;">${title}</div>
+        <div>هزینه اصل گیم در صرافی: <strong>${totalMin.toLocaleString()}€ ${totalMin !== totalMax ? 'تا ' + totalMax.toLocaleString() + '€' : ''}</strong></div>
+        <div>اسکونت صرافی (${comm}%): <strong style="color:var(--accent-gold);">${commMin.toLocaleString()}€ ${commMin !== commMax ? 'تا ' + commMax.toLocaleString() + '€' : ''}</strong></div>
+        <div style="margin-top:0.4rem; padding-top:0.4rem; border-top:1px solid var(--paper-border); color:var(--success); font-weight:800;">
+          مجموع کل نقدینگی لازم: ${(totalMin + commMin).toLocaleString()}€ تا ${(totalMax + commMax).toLocaleString()}€
+        </div>
+      `;
+    }
+
+    function updateScamCalc(people) {
+      const box = document.getElementById('scamResultText');
+      if (!box) return;
+      const burned = Math.round(people * 0.8);
+      const profit = burned * 480;
+      box.innerHTML = `
+        <div>تعداد کل مسافران در ماه: <strong>${people} نفر</strong> | تعداد برگشت‌خورده (۸۰٪): <strong>${burned} نفر</strong></div>
+        <div style="font-size:1.3rem; font-weight:800; color:var(--danger); margin:0.4rem 0;">
+          ${burned} × 480€ = ${profit.toLocaleString()} یورو سود خالص از سوختن مسافران!
+        </div>
+      `;
+    }
+
+    function evalReadiness() {
+      const checks = document.querySelectorAll('.ready-chk:checked').length;
+      const box = document.getElementById('readinessOutput');
+      if (!box) return;
+      if (checks === 5) {
+        box.innerHTML = '✅ <strong>شما هر ۵ شرط کلیدی کتاب را رعایت کرده‌اید.</strong> فراموش نکنید که برای شروع این سفر سه چیز لازم است: شانس، پول و اطلاعات.';
+      } else {
+        box.innerHTML = `⚠️ <strong>شما ${checks} از ۵ مورد را تیک زده‌اید.</strong> حتماً پیش از هر تصمیمی فصل دوم و بخش پایانی کتاب را دوباره بخوانید.`;
+      }
+    }
+
+    function changeFontSize(delta) {
+      currentFontSize = Math.min(23, Math.max(13, currentFontSize + delta));
+      document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
+    }
+
+    function changeZoom(val) {
+      document.documentElement.style.setProperty('--paper-zoom', val);
+      document.getElementById('zoomLabel').textContent = Math.round(val * 100) + '%';
+    }
+
+    function toggleDarkWorkspace() {
+      document.body.classList.toggle('dark-workspace');
+      const isDark = document.body.classList.contains('dark-workspace');
+      document.getElementById('themeBtn').textContent = isDark ? '☀️ برگه روشن وُرد' : '🌙 میز کار تیره';
+    }
+
+    function searchBook(query) {
+      const q = query.trim();
+      document.querySelectorAll('.word-page').forEach(p => {
+        const modes = (p.getAttribute('data-modes') || '').split(',');
+        const allowedInMode = modes.includes(currentReadingMode) || isEditMode;
+        if (!allowedInMode) {
+          p.style.display = 'none';
+          return;
+        }
+        if (!q || p.innerText.includes(q)) {
+          p.style.display = 'flex';
+        } else {
+          p.style.display = 'none';
+        }
+      });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3300);
+    }
+  </script>
+</body>
+</html>
